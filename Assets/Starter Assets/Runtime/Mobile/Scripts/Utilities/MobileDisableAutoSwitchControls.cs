@@ -7,16 +7,15 @@ This is fixed in Input System 1.1.
 For the time-being; this script will disable a PlayerInput's auto switch control schemes; when project is built to mobile.
 */
 
-using System;
 using UnityEngine;
-#if ENABLE_INPUT_SYSTEM
+#if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 #endif
 
 public class MobileDisableAutoSwitchControls : MonoBehaviour
 {
     
-#if ENABLE_INPUT_SYSTEM && (UNITY_IOS || UNITY_ANDROID)
+#if ENABLE_INPUT_SYSTEM && (UNITY_IOS || UNITY_ANDROID) && STARTER_ASSETS_PACKAGES_CHECKED
 
     [Header("Target")]
     public PlayerInput playerInput;
@@ -29,11 +28,6 @@ public class MobileDisableAutoSwitchControls : MonoBehaviour
     void DisableAutoSwitchControls()
     {
         playerInput.neverAutoSwitchControlSchemes = true;
-    }
-
-    private void Update()
-    {
-        Debug.Log(playerInput.currentControlScheme);
     }
 
 #endif
