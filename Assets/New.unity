@@ -4928,8 +4928,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &632534484
-BoxCollider:
+--- !u!136 &632534489
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4946,9 +4946,11 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.1113609, y: 3.3061247, z: 1.1685542}
-  m_Center: {x: -0.00000044428373, y: 1.6530623, z: -0.000000059604645}
+  serializedVersion: 2
+  m_Radius: 0.5842771
+  m_Height: 3.3061247
+  m_Direction: 1
+  m_Center: {x: -0.0000004470349, y: 1.6530623, z: -0.000000059604645}
 --- !u!1 &642387618
 GameObject:
   m_ObjectHideFlags: 0
@@ -11534,6 +11536,7 @@ MonoBehaviour:
   playerCamera: {fileID: 1964842112}
   holdPoint: {fileID: 1295571669}
   pickupDistance: 3
+  throwForce: 10
 --- !u!1 &1309034728
 GameObject:
   m_ObjectHideFlags: 0
@@ -14386,11 +14389,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1424161296537849453, guid: 465053c7e3a8f0b4e9fd2a994ff5c208, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.392
+      value: 4.883
       objectReference: {fileID: 0}
     - target: {fileID: 1424161296537849453, guid: 465053c7e3a8f0b4e9fd2a994ff5c208, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.629
+      value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 1424161296537849453, guid: 465053c7e3a8f0b4e9fd2a994ff5c208, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14432,7 +14435,8 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Trash
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -6080676054918734526, guid: 465053c7e3a8f0b4e9fd2a994ff5c208, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -14441,7 +14445,7 @@ PrefabInstance:
       addedObject: {fileID: 632534479}
     - targetCorrespondingSourceObject: {fileID: 4103672370777542020, guid: 465053c7e3a8f0b4e9fd2a994ff5c208, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 632534484}
+      addedObject: {fileID: 632534489}
   m_SourcePrefab: {fileID: 100100000, guid: 465053c7e3a8f0b4e9fd2a994ff5c208, type: 3}
 --- !u!1001 &1654521322
 PrefabInstance:
@@ -16673,7 +16677,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 1964842112}
   holdPoint: {fileID: 1295571669}
-  pickupDistance: 3
+  pickupDistance: 4
+  throwForce: 8
 --- !u!1001 &1906353983
 PrefabInstance:
   m_ObjectHideFlags: 0
