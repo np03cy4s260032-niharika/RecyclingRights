@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Text.RegularExpressions;
 
 public class InteractionPrompt : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class InteractionPrompt : MonoBehaviour
 
     void Update()
     {
+        // Hide text by default
         interactionText.text = "";
 
         Ray ray = new Ray(
@@ -22,7 +24,7 @@ public class InteractionPrompt : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, interactionDistance))
         {
-            // Check if the player is currently holding trash
+            // Check if player is holding trash
             bool isHoldingTrash = holdPoint.childCount > 0;
 
             // NOT HOLDING TRASH
@@ -31,7 +33,20 @@ public class InteractionPrompt : MonoBehaviour
                 if (hit.collider.CompareTag("Trash") ||
                     hit.collider.transform.root.CompareTag("Trash"))
                 {
-                    interactionText.text = "Press E to carry bottle";
+                    // Get the main trash object
+                    string trashName = hit.collider.transform.root.name;
+
+                    // Remove duplicate numbers such as (1), (2), (3)
+                    trashName = Regex.Replace(trashName, @"\s*\(\d+\)$", "");
+
+                    // Remove extra spaces
+                    trashName = trashName.Trim();
+
+                    // Make the name lowercase
+                    trashName = trashName.ToLower();
+
+                    interactionText.text =
+                        "Press E to carry " + trashName;
                 }
             }
 
