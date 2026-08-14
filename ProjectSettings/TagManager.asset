@@ -7,6 +7,7 @@ TagManager:
   - Fire
   - CinemachineTarget
   - Trash
+  - RecyclingBin
   layers:
   - Default
   - TransparentFX
