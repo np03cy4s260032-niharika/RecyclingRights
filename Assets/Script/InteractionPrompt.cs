@@ -27,7 +27,9 @@ public class InteractionPrompt : MonoBehaviour
             // Check if player is holding trash
             bool isHoldingTrash = holdPoint.childCount > 0;
 
+            // =========================
             // NOT HOLDING TRASH
+            // =========================
             if (!isHoldingTrash)
             {
                 if (hit.collider.CompareTag("Trash") ||
@@ -37,7 +39,11 @@ public class InteractionPrompt : MonoBehaviour
                     string trashName = hit.collider.transform.root.name;
 
                     // Remove duplicate numbers such as (1), (2), (3)
-                    trashName = Regex.Replace(trashName, @"\s*\(\d+\)$", "");
+                    trashName = Regex.Replace(
+                        trashName,
+                        @"\s*\(\d+\)$",
+                        ""
+                    );
 
                     // Remove extra spaces
                     trashName = trashName.Trim();
@@ -50,13 +56,32 @@ public class InteractionPrompt : MonoBehaviour
                 }
             }
 
+            // =========================
             // HOLDING TRASH
+            // =========================
             else
             {
                 if (hit.collider.CompareTag("RecyclingBin") ||
                     hit.collider.transform.root.CompareTag("RecyclingBin"))
                 {
-                    interactionText.text = "Press E to throw bottle";
+                    // Get the object currently being held
+                    string trashName = holdPoint.GetChild(0).name;
+
+                    // Remove duplicate numbers such as (1), (2), (3)
+                    trashName = Regex.Replace(
+                        trashName,
+                        @"\s*\(\d+\)$",
+                        ""
+                    );
+
+                    // Remove extra spaces
+                    trashName = trashName.Trim();
+
+                    // Make the name lowercase
+                    trashName = trashName.ToLower();
+
+                    interactionText.text =
+                        "Press E to throw " + trashName;
                 }
             }
         }
