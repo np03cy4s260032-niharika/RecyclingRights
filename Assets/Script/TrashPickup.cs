@@ -6,7 +6,6 @@ public class TrashPickup : MonoBehaviour
     public Transform holdPoint;
 
     public float pickupDistance = 4f;
-    public float throwForce = 8f;
 
     private GameObject heldTrash;
     private Rigidbody heldRb;
@@ -21,7 +20,7 @@ public class TrashPickup : MonoBehaviour
             }
             else
             {
-                ThrowTrash();
+                RecyclingBin();
             }
         }
     }
@@ -39,14 +38,13 @@ public class TrashPickup : MonoBehaviour
         {
             Transform trashTransform = hit.collider.transform;
 
-            // Check the object and its parents for the Trash tag
+            // Check if the object has the Trash tag
             if (trashTransform.CompareTag("Trash") ||
                 trashTransform.root.CompareTag("Trash"))
             {
                 heldTrash = trashTransform.gameObject;
 
-                // If the collider is on a child object,
-                // use the Rigidbody from the parent
+                // Find Rigidbody
                 heldRb = heldTrash.GetComponent<Rigidbody>();
 
                 if (heldRb == null)
@@ -56,15 +54,18 @@ public class TrashPickup : MonoBehaviour
 
                 if (heldRb == null)
                 {
-                    Debug.Log("Bottle needs a Rigidbody.");
+                    Debug.Log("Trash needs a Rigidbody.");
                     heldTrash = null;
                     return;
                 }
 
+                // Turn off physics while holding
                 heldRb.isKinematic = true;
                 heldRb.useGravity = false;
 
+                // Attach trash to HoldPoint
                 heldTrash.transform.SetParent(holdPoint);
+
                 heldTrash.transform.localPosition = Vector3.zero;
                 heldTrash.transform.localRotation = Quaternion.identity;
 
@@ -72,27 +73,54 @@ public class TrashPickup : MonoBehaviour
             }
             else
             {
-                Debug.Log("Object is not tagged Trash. Hit object was: " 
-                    + hit.collider.gameObject.name);
+                Debug.Log(
+                    "Object is not tagged Trash. Hit object was: "
+                    + hit.collider.gameObject.name
+                );
             }
         }
     }
 
-    void ThrowTrash()
+    void RecyclingBin()
     {
-        heldTrash.transform.SetParent(null);
-
-        heldRb.isKinematic = false;
-        heldRb.useGravity = true;
-
-        heldRb.AddForce(
-            playerCamera.transform.forward * throwForce,
-            ForceMode.Impulse
+        Ray ray = new Ray(
+            playerCamera.transform.position,
+            playerCamera.transform.forward
         );
 
-        Debug.Log("Trash thrown!");
+        RaycastHit hit;
 
-        heldTrash = null;
-        heldRb = null;
+        if (Physics.Raycast(ray, out hit, pickupDistance))
+        {
+            // Check if the object has the RecyclingBin tag
+            if (hit.collider.CompareTag("RecyclingBin") ||
+                hit.collider.transform.root.CompareTag("RecyclingBin"))
+            {
+                // Remove trash from player's hand
+                heldTrash.transform.SetParent(null);
+
+                // Stop physics
+                heldRb.isKinematic = true;
+                heldRb.useGravity = false;
+
+                // Put trash at the recycling bin
+                heldTrash.transform.position = hit.collider.bounds.center;
+
+                // Reset rotation
+                heldTrash.transform.rotation = Quaternion.identity;
+
+                Debug.Log("Trash placed in recycling bin!");
+
+                heldTrash = null;
+                heldRb = null;
+            }
+            else
+            {
+                Debug.Log(
+                    "Look directly at the RecyclingBin. Hit object was: "
+                    + hit.collider.gameObject.name
+                );
+            }
+        }
     }
 }
