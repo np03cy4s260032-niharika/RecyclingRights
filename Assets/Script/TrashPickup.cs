@@ -111,6 +111,13 @@ public class TrashPickup : MonoBehaviour
 
                 Debug.Log("Trash placed in recycling bin!");
 
+                // ADD 10 POINTS
+                if (ScoreManager.Instance != null)
+                {
+                    ScoreManager.Instance.AddScore(10);
+                }
+
+                // Clear held trash
                 heldTrash = null;
                 heldRb = null;
             }
