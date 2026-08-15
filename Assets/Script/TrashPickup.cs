@@ -38,7 +38,7 @@ public class TrashPickup : MonoBehaviour
         {
             Transform trashTransform = hit.collider.transform;
 
-            // Check if the object has the Trash tag
+            // Check if the object is tagged Trash
             if (trashTransform.CompareTag("Trash") ||
                 trashTransform.root.CompareTag("Trash"))
             {
@@ -54,16 +54,16 @@ public class TrashPickup : MonoBehaviour
 
                 if (heldRb == null)
                 {
-                    Debug.Log("Trash needs a Rigidbody.");
+                    Debug.LogError("Trash needs a Rigidbody.");
                     heldTrash = null;
                     return;
                 }
 
-                // Turn off physics while holding
+                // Disable physics while holding
                 heldRb.isKinematic = true;
                 heldRb.useGravity = false;
 
-                // Attach trash to HoldPoint
+                // Attach to HoldPoint
                 heldTrash.transform.SetParent(holdPoint);
 
                 heldTrash.transform.localPosition = Vector3.zero;
@@ -74,8 +74,8 @@ public class TrashPickup : MonoBehaviour
             else
             {
                 Debug.Log(
-                    "Object is not tagged Trash. Hit object was: "
-                    + hit.collider.gameObject.name
+                    "Object is not tagged Trash. Hit object: " +
+                    hit.collider.gameObject.name
                 );
             }
         }
@@ -92,40 +92,63 @@ public class TrashPickup : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, pickupDistance))
         {
-            // Check if the object has the RecyclingBin tag
+            // Check if the object is a recycling bin
             if (hit.collider.CompareTag("RecyclingBin") ||
                 hit.collider.transform.root.CompareTag("RecyclingBin"))
             {
-                // Remove trash from player's hand
-                heldTrash.transform.SetParent(null);
+                // Save the trash reference before destroying it
+                GameObject recycledTrash = heldTrash;
 
-                // Stop physics
-                heldRb.isKinematic = true;
-                heldRb.useGravity = false;
+                // Remove from player's hand
+                recycledTrash.transform.SetParent(null);
 
-                // Put trash at the recycling bin
-                heldTrash.transform.position = hit.collider.bounds.center;
+                // Disable physics
+                if (heldRb != null)
+                {
+                    heldRb.isKinematic = true;
+                    heldRb.useGravity = false;
+                }
 
-                // Reset rotation
-                heldTrash.transform.rotation = Quaternion.identity;
+                // Move trash into the bin
+                recycledTrash.transform.position = hit.collider.bounds.center;
+                recycledTrash.transform.rotation = Quaternion.identity;
 
                 Debug.Log("Trash placed in recycling bin!");
 
-                // ADD 10 POINTS
+                // ADD 10 SCORE
                 if (ScoreManager.Instance != null)
                 {
                     ScoreManager.Instance.AddScore(10);
                 }
 
-                // Clear held trash
+                // FIND TRASH COUNTER
+                TrashCounter counter =
+                    FindFirstObjectByType<TrashCounter>();
+
+                if (counter != null)
+                {
+                    // Reduce counter ONCE
+                    counter.RemoveTrash(recycledTrash);
+                }
+                else
+                {
+                    Debug.LogError(
+                        "TrashCounter was not found in the scene!"
+                    );
+                }
+
+                // Remove the recycled trash
+                Destroy(recycledTrash);
+
+                // Clear held item
                 heldTrash = null;
                 heldRb = null;
             }
             else
             {
                 Debug.Log(
-                    "Look directly at the RecyclingBin. Hit object was: "
-                    + hit.collider.gameObject.name
+                    "Look directly at the RecyclingBin. Hit object: " +
+                    hit.collider.gameObject.name
                 );
             }
         }
