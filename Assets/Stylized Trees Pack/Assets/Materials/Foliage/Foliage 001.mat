@@ -1,0 +1,143 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!28 &-42366132795388866
+Texture2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: _Gradient_gradienttexture Texture{"mode":0,"colorKeys":[{"color":{"r":0.23529411852359773,"g":0.23529411852359773,"b":0.23529411852359773,"a":1.0},"time":0.0},{"color":{"r":0.2666666805744171,"g":0.8078431487083435,"b":0.4000000059604645,"a":1.0},"time":0.7823605537414551},{"color":{"r":0.9372549057006836,"g":1.0,"b":0.572549045085907,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":1.0,"time":0.0},{"alpha":1.0,"time":1.0}]}
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 3
+  m_Width: 256
+  m_Height: 1
+  m_CompleteImageSize: 1024
+  m_MipsStripped: 0
+  m_TextureFormat: 5
+  m_MipCount: 1
+  m_IsReadable: 1
+  m_IsPreProcessed: 0
+  m_IgnoreMipmapLimit: 1
+  m_MipmapLimitGroupName: 
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
+  m_VTOnly: 0
+  m_AlphaIsTransparency: 0
+  m_ImageCount: 1
+  m_TextureDimension: 2
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_LightmapFormat: 0
+  m_ColorSpace: 1
+  m_PlatformBlob: 
+  image data: 1024
+  _typelessdata: ff3c3c3cff3c3d3cff3c3d3cff3c3e3dff3c3f3dff3c403dff3c403dff3c413dff3c423eff3c433eff3c433eff3c443eff3c453fff3d463fff3d463fff3d473fff3d483fff3d4840ff3d4940ff3d4a40ff3d4b40ff3d4b40ff3d4c41ff3d4d41ff3d4e41ff3d4e41ff3d4f41ff3d5042ff3d5042ff3d5142ff3d5242ff3d5343ff3d5343ff3d5443ff3d5543ff3d5643ff3d5644ff3d5744ff3e5844ff3e5944ff3e5944ff3e5a45ff3e5b45ff3e5b45ff3e5c45ff3e5d45ff3e5e46ff3e5e46ff3e5f46ff3e6046ff3e6147ff3e6147ff3e6247ff3e6347ff3e6447ff3e6448ff3e6548ff3e6648ff3e6648ff3e6748ff3e6849ff3e6949ff3e6949ff3f6a49ff3f6b49ff3f6c4aff3f6c4aff3f6d4aff3f6e4aff3f6e4bff3f6f4bff3f704bff3f714bff3f714bff3f724cff3f734cff3f744cff3f744cff3f754cff3f764dff3f774dff3f774dff3f784dff3f794dff3f794eff3f7a4eff3f7b4eff3f7c4eff407c4fff407d4fff407e4fff407f4fff407f4fff408050ff408150ff408250ff408250ff408350ff408451ff408451ff408551ff408651ff408751ff408752ff408852ff408952ff408a52ff408a53ff408b53ff408c53ff408d53ff408d53ff408e54ff418f54ff418f54ff419054ff419154ff419255ff419255ff419355ff419455ff419555ff419556ff419656ff419756ff419756ff419857ff419957ff419a57ff419a57ff419b57ff419c58ff419d58ff419d58ff419e58ff419f58ff41a059ff41a059ff42a159ff42a259ff42a259ff42a35aff42a45aff42a55aff42a55aff42a65bff42a75bff42a85bff42a85bff42a95bff42aa5cff42ab5cff42ab5cff42ac5cff42ad5cff42ad5dff42ae5dff42af5dff42b05dff42b05dff42b15eff42b25eff42b35eff43b35eff43b45fff43b55fff43b55fff43b65fff43b75fff43b860ff43b860ff43b960ff43ba60ff43bb60ff43bb61ff43bc61ff43bd61ff43be61ff43be61ff43bf62ff43c062ff43c062ff43c162ff43c263ff43c363ff43c363ff43c463ff43c563ff44c664ff44c664ff44c764ff44c864ff44c964ff44c965ff44ca65ff44cb65ff44cb65ff44cc65ff44cd66ff44ce66ff46ce66ff49cf67ff4cd068ff4fd169ff52d26aff55d36aff58d46bff5bd56cff5ed66dff61d66eff64d76eff67d86fff6bd970ff6eda71ff71db71ff74dc72ff77dd73ff7add74ff7dde75ff80df75ff83e076ff86e177ff89e278ff8ce379ff8fe479ff93e57aff96e57bff99e67cff9ce77dff9fe87dffa2e97effa5ea7fffa8eb80ffabec81ffaeec81ffb1ed82ffb4ee83ffb8ef84ffbbf085ffbef185ffc1f286ffc4f387ffc7f488ffcaf488ffcdf589ffd0f68affd3f78bffd6f88cffd9f98cffddfa8dffe0fb8effe3fb8fffe6fc90ffe9fd90ffecfe91ffefff92
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Foliage 001
+  m_Shader: {fileID: 4800000, guid: 279d8efe6c2364d49ab4647f78eba70d, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Albedo:
+        m_Texture: {fileID: 2800000, guid: 9f2f6d1d064dbd747a1e98524741782a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FillMask:
+        m_Texture: {fileID: 2800000, guid: 6718be5d817104642a5ba58a6da65f4b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Gradient_gradienttexture:
+        m_Texture: {fileID: -42366132795388866}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Gradient_gradienttexture1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GustNoiseMap:
+        m_Texture: {fileID: 2800000, guid: c56575d3804a4be384d9d91946009389, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample1:
+        m_Texture: {fileID: -42366132795388866}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AddPrecomputedVelocity: 1
+    - _AlphaCutoff: 0.5
+    - _BreezeSpeed: 3.5
+    - _BreezeStrength: 1
+    - _ColorHeader: 0
+    - _Cutoff: 0.95
+    - _Dither: 1
+    - _DraftFrequency: 0.027
+    - _DraftSpeed: 4
+    - _DraftStrength: 0.25
+    - _FillImpact: 0.1
+    - _LightFactor: 0.5
+    - _PerObjectWindRandomization: 1
+    - _PerVertexWindRandomization: 1
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _ReceiveShadows: 1
+    - _ShadowCutoff: 0.95
+    - _ShadowFactor: 0.25
+    - _SurfaceHeader: 0
+    - _WindHeader: 0
+    - _WindRooted: 1
+    - _WindSpeed: 1
+    m_Colors:
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _ShadowCutoff: {r: 0, g: 0.95, b: 0, a: 1}
+    - _Vector0: {r: 0, g: 0.95, b: 0, a: 1}
+    - _WindDirection: {r: 0.5, g: -0.25, b: 0, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
