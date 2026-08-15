@@ -3,10 +3,15 @@ using TMPro;
 
 public class GameTimer : MonoBehaviour
 {
-    public float timeRemaining = 180f;
+    public float timeRemaining = 300f;
     public TextMeshProUGUI timerText;
 
     private bool timerRunning = true;
+
+    void Start()
+    {
+        UpdateTimerDisplay();
+    }
 
     void Update()
     {
@@ -25,6 +30,7 @@ public class GameTimer : MonoBehaviour
         else
         {
             timerRunning = false;
+            TimerFinished();
         }
     }
 
@@ -38,21 +44,26 @@ public class GameTimer : MonoBehaviour
                          ":" +
                          seconds.ToString("00");
 
-        // Color changes based on remaining time
+        // White: more than 1 minute
         if (timeRemaining > 60f)
         {
-            // More than 1 minute = White
             timerText.color = Color.white;
         }
+        // Yellow: 1 minute to 31 seconds
         else if (timeRemaining > 30f)
         {
-            // 1 minute to 31 seconds = Yellow
             timerText.color = Color.yellow;
         }
+        // Red: 30 seconds or less
         else
         {
-            // 30 seconds or less = Red
             timerText.color = Color.red;
         }
+    }
+
+    void TimerFinished()
+    {
+        timerText.text = "Time's Up!";
+        timerText.color = Color.red;
     }
 }
